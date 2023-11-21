@@ -5,6 +5,6 @@ class HomeModel extends HiveObject {
   int? id;
   String? title;
   RxBool isChecked = false.obs;
-
-  HomeModel({this.id, this.title, required this.isChecked});
+  String? subject;
+  HomeModel({this.id, this.title, this.subject, required this.isChecked});
 }

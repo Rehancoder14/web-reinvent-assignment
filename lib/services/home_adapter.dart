@@ -12,9 +12,11 @@ class HomeModelAdapter extends TypeAdapter<HomeModel> {
     final id = reader.readInt();
     final title = reader.readString();
     final isCheck = reader.readBool();
+    final subject = reader.readString();
     return HomeModel(
       id: id,
       title: title,
+      subject: subject,
       isChecked: isCheck.obs,
     );
   }
@@ -23,6 +25,7 @@ class HomeModelAdapter extends TypeAdapter<HomeModel> {
   void write(BinaryWriter writer, HomeModel obj) {
     writer.writeInt(obj.id!);
     writer.writeString(obj.title!);
+    writer.writeString(obj.subject!);
     writer.writeBool(obj.isChecked.value);
   }
 }
