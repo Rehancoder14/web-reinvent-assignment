@@ -50,15 +50,18 @@ class LocalStorageService {
     }
   }
 
-  Future<void> addHomeModel(String title, bool isChecked) async {
+  Future<void> addHomeModel(
+      String title, String subject, bool isChecked) async {
     int millSec = DateTime.now().millisecondsSinceEpoch;
     int uniqueId = millSec % 1000000;
 
     HomeModel newHomeModel = HomeModel(
       id: uniqueId,
+      subject: subject,
       title: title,
       isChecked: isChecked.obs,
     );
+    print(subject);
     print(newHomeModel.title.toString());
     print(newHomeModel.id.toString());
     print(newHomeModel.isChecked.toString());
